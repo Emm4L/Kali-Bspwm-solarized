@@ -1,0 +1,83 @@
+##########################
+# wm independent hotkeys #
+##########################
+
+# Apertura Terminale 
+super + Return
+	/opt/kitty/bin/kitty
+
+# i3lock Blocco Schermo
+shift + l
+	/usr/bin/i3lock-everblush
+
+
+# lancio programmi
+super + d
+	rofi -show run
+
+# ricarica la configurazione sxhkd:
+super + Escape
+	pkill -USR1 -x sxhkd
+
+#################
+# bspwm hotkeys #
+#################
+
+# Esci o riavvia bspwm
+super + alt + {q,r}
+	bspc {quit,wm -r}
+
+# Chiusura delle pagine
+super + {_,shift + }w
+	bspc node -{c,k}
+
+#ridimensione pagina
+super + f
+	bspc desktop -l next
+
+
+###############
+# state/flags #
+###############
+
+# set the window state
+super + {t,shift + t,s,f}
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+##############
+# focus/swap #
+##############
+
+# Cambia la finestra
+super + {_,shift + }{Left,Down,Up,Right}
+	bspc node -{f,s} {west,south,north,east}
+
+# Cambia la finestra interna o esterna
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,node -d} '^{1-9,10}'
+
+###############
+# move/resize #
+###############
+
+# move a floating window
+super + ctrl + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# Allarga o diminuisci la finestra
+super + alt + {Left,Down,Up,Right}
+	~/.config/bspwm/scripts/bspwm_resize {west,south,north,east}
+
+########################
+# Custom Launchers App #
+########################
+
+# Firefox
+super + shift + f
+	firefox
+
+###############
+# ScreenShots #
+###############
+shift + alt +s
+        screenshot select
