@@ -37,12 +37,16 @@ super + f
 
 
 ###############
-# state/flags #
+# finestra #
 ###############
+ 
+# Ridimensiona una finestra floating
+super + alt + {Left,Down,Up,Right}
+        ~/.config/bspwm/scripts/bspwm_resize {west,south,north,east}
 
-# set the window state
-super + {t,shift + t,s,f}
-	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+# Alternare la modalità fullscreen per la finestra corrente
+ctrl + shift + f
+        ~/.config/bspwm/scripts/bspwm_resize fullscreen
 
 ##############
 # focus/swap #
@@ -75,9 +79,17 @@ super + alt + {Left,Down,Up,Right}
 # Firefox
 super + shift + f
 	firefox
+# Google 
+super + shift + g
+        google-chrome
+
+# Apertura cartella
+super + alt + f;
+    thunar ~/ 
 
 ###############
 # ScreenShots #
 ###############
 shift + alt +s
         screenshot select
+
